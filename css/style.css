@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo Thambi 2', cursive;
+}
+
+html,body{height: 100%;}
+
+.clear {clear: both;}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2%;
+}
+
+header {
+    width: 100%;
+  
+    background-color: #431d85;
+}
+
+header .logo {
+    font-size: 30px;
+    color: white;
+    position: relative;
+    top: 10px;
+}
+
+header ul {
+    float: right;
+    position: relative;
+    top: -28px;
+    list-style-type: none;
+}
+
+header li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+header a {
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+}
+
+header a:hover{text-decoration: underline;} 
