@@ -6,12 +6,14 @@
             <input type="text" name="search">
             <div class="line"></div>
         </div><!--search-->
+        <?php Stock::Delete() ?>
+        <br>
         <section class="containers flex flex-wrap">
             <?php
                 if(isset($_POST['update'])) {
                     $amount = $_POST['amount'];
-                    $ids = $_POST['id'];
-                    $amounts = Sql::connect()->prepare("UPDATE `products` SET amount = ? WHERE id = $ids");
+                    $id = $_POST['id'];
+                    $amounts = Sql::connect()->prepare("UPDATE `products` SET amount = ? WHERE id = $id");
                     $amounts->execute(array($amount));
                 }
                 $products = Stock::Select('products');
@@ -29,7 +31,8 @@
                       <form method="post">
                             <input type="number" name="amount" value="<?php echo $value['amount']; ?>">
                             <input type="submit" name="update" value="update">
-                            <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                            <input type="hidden" name="id" value="<?php echo $value['id']; ?>"><br><br>
+                            <a class="delete" href="<?php echo MAIN_PATH ?>view?delete=<?php echo $value['id']; ?>"><i class="fa fa-times"></i> Delete</a>
                       </form>
                   </div><!--btn-->
               </div><!--item-single-->   

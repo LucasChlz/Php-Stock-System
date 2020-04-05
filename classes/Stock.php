@@ -82,6 +82,18 @@
             return $sql->fetchAll();
         }
 
+        public static function Delete() {
+            if(isset($_GET['delete'])) {
+                $id = (int)$_GET['delete'];
+                $produ = Sql::connect()->prepare("SELECT `image` FROM `products` WHERE id = $id");
+                $produ->execute();
+                $produ = $produ->fetch();
+                @unlink(DIR.'/uploads/'.$produ['image']);
+                Sql::connect()->exec("DELETE FROM `products` WHERE id = $id");
+                Stock::Alert('success','product successfully deleted');
+            }
+        }
+
         
     }
 
