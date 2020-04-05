@@ -32,7 +32,8 @@
                             <input type="number" name="amount" value="<?php echo $value['amount']; ?>">
                             <input type="submit" name="update" value="update">
                             <input type="hidden" name="id" value="<?php echo $value['id']; ?>"><br><br>
-                            <a class="delete" href="<?php echo MAIN_PATH ?>view?delete=<?php echo $value['id']; ?>"><i class="fa fa-times"></i> Delete</a>
+                            <a class="bt delete" href="<?php echo MAIN_PATH ?>view?delete=<?php echo $value['id']; ?>"><i class="fa fa-times"></i> Delete</a>
+                            <a class="bt edit" href="<?php echo MAIN_PATH ?>edit?id=<?php echo $value['id']; ?>"><i class="fa fa-pencil"></i> Edit</a>
                       </form>
                   </div><!--btn-->
               </div><!--item-single-->   

@@ -216,14 +216,22 @@ form input[type=submit]:hover {
     background: #431d85;
 }
 
-.delete {
+.bt {
     width: 150px;
     height: 30px;
-    background: rgb(150, 49, 49);
     text-decoration: none;
     color: white;
     margin: 10px 0;
     padding: 5px 5px;
+    text-decoration: none;
+}
+
+.delete {
+    background: rgb(150, 49, 49);
+}
+
+.edit {
+    background: rgb(218, 166, 23);
 }
 
 .containers {
