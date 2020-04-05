@@ -11,11 +11,12 @@
     // PATCH
 
     define("MAIN_PATH", 'http://localhost/Php-Stock-System/');
+    define("DIR",__DIR__);
     
     // CONNECT DB
 
     define('HOST','localhost');
-    define('USER','rooter');
+    define('USER','root');
     define('PASSWORD','');
     define('DB','stock');
 

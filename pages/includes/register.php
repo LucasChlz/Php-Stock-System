@@ -5,6 +5,10 @@
         </div><!--box-txt-->
         <div class="container">
             <form method="post" enctype="multipart/form-data">
+                <?php 
+                    $Stock = new Stock();
+                    $Stock->RegisterP();
+                ?>
                 <div class="form-g">
                     <label>Product's name</label>
                     <input type="text" name="name">

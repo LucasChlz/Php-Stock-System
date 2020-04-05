@@ -15,6 +15,67 @@
             }
         }
 
+        public static function validImage($image) {
+            if($image['type'] == 'image/JPEG' ||
+              $image['type'] == 'image/jpeg' ||
+              $image['type'] == 'image/png' ||
+              $image['type'] == 'image/gif') {
+    
+              $size = intval($image['size'] / 1024);
+              if($size < 1000){
+                return true;
+              }else {
+                return false;
+              }
+            }else {
+                return false;
+            }
+        }
+
+        public static function Alert($type,$msg) {
+            if($type == 'success') {
+                echo '<div class="box-success">'.$msg.'.</div>';
+            }else if($type == 'error') {
+                echo '<div class="box-error">'.$msg.'.</div>';
+            }
+        }
+
+        public static function uploadFile($file) {
+            $fileFormat = explode('.', $file['name']);
+            $imageName = uniqid().'.'.$fileFormat[count($fileFormat) - 1];
+            if(move_uploaded_file($file['tmp_name'],DIR.'/uploads/'.$imageName)){
+              return $imageName;
+            }else {
+              return false;
+            }
+            
+          }
+
+        public function RegisterP() {
+            if(isset($_POST['action'])) {
+                $name = $_POST['name'];
+                $description = $_POST['description'];
+                $provider = $_POST['provider'];
+                $manufacturer = $_POST['manufacturer'];
+                $amount = $_POST['amount'];
+                $image = $_FILES['image'];
+
+                $success = true;
+
+                if($name == '' || $description == '' || $provider == '' || $manufacturer == '' || $amount == '' || $image == '') {
+                    $success = false;
+                    Stock::Alert('error','Fill in all fields');
+                }else if($success) {
+                    $sql = Sql::connect()->prepare("INSERT INTO `products` VALUES(null,?,?,?,?,?,?)");
+                    $image = Stock::uploadFile($image);
+                    if($sql->execute(array($name,$description,$provider,$manufacturer,$amount,$image))) {
+                        Stock::Alert('success','the product has been successfully registered');
+                                   
+                    }
+                }
+            }
+        }
+
         
     }
 

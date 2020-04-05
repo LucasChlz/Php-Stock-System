@@ -9,6 +9,28 @@ html,body{height: 100%;}
 
 .clear {clear: both;}
 
+.box-success {
+    width: 500px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 2px;
+    text-align: center;
+    background: rgb(44, 182, 67);
+    color: white;
+    font-size: 18px;
+}
+
+.box-error {
+    width: 500px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 2px;
+    text-align: center;
+    background: rgb(151, 39, 48);
+    color: white;
+    font-size: 18px;
+}
+
 .cont {
   background: #2a2a3d;
   height: 100%;
