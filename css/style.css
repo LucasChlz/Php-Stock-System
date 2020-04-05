@@ -257,4 +257,20 @@ form input[type=submit]:hover {
 	flex-wrap: wrap;
 }
 
+@media screen and (max-width: 700px) {
+    header .logo {
+        width: 100%;
+        text-align: center;
+    }
+    header ul {
+        margin-top: 50px;
+        width: 100%;
+        text-align: center;
+    }
+
+    header li {
+        display: block;
+    }
+}
+
 
