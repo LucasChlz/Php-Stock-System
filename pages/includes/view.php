@@ -16,7 +16,7 @@
                     $amounts = Sql::connect()->prepare("UPDATE `products` SET amount = ? WHERE id = $id");
                     $amounts->execute(array($amount));
                 }
-                $products = Stock::Select('products');
+                $products = Stock::Select('products','','');
                 foreach($products as $key => $value) {
             ?>
               <div class="item-single item">

@@ -12,7 +12,14 @@
 <body>
     <?php include_once('pages/header.php'); ?>
     <div class="cont">
-        <?php Stock::loadPage(); ?>
+        <?php  
+            $url = isset($_GET['url']);
+            if($url == '') {
+                include('pages/includes/view.php');
+            }else {
+                Stock::loadPage(); 
+            }  
+        ?>
     </div><!--cont-->
 </body>
 </html>
