@@ -76,6 +76,12 @@
             }
         }
 
+        public static function Select($tb) {
+            $sql = Sql::connect()->prepare("SELECT * FROM `$tb`");
+            $sql->execute();
+            return $sql->fetchAll();
+        }
+
         
     }
 

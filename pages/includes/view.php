@@ -7,19 +7,33 @@
             <div class="line"></div>
         </div><!--search-->
         <section class="containers flex flex-wrap">
+            <?php
+                if(isset($_POST['update'])) {
+                    $amount = $_POST['amount'];
+                    $ids = $_POST['id'];
+                    $amounts = Sql::connect()->prepare("UPDATE `products` SET amount = ? WHERE id = $ids");
+                    $amounts->execute(array($amount));
+                }
+                $products = Stock::Select('products');
+                foreach($products as $key => $value) {
+            ?>
               <div class="item-single item">
-                  <img src="uploads/5e89279f9007c.jpg" alt="">
+                  <img src="<?php echo MAIN_PATH; ?>uploads/<?php echo $value['image']; ?>" alt="">
                   <div class="item-single-txt">
-                      <p>Name: Medicine</p>
-                      <p>Description: Medicine remedy</p>
-                      <p>Provider: Farma medcine</p>
-                      <p>Manufacturer: Farma medicine</p>
+                      <p>Name: <?php echo $value['name']; ?></p>
+                      <p>Description: <?php echo $value['description']; ?></p>
+                      <p>Provider: <?php echo $value['provider']; ?></p>
+                      <p>Manufacturer: <?php echo $value['manufacturer']; ?></p>
                   </div><!--item-single-txt-->
                   <div class="btn">
-                      <input type="number" name="amount" value="200">
-                      <input type="submit" name="update" value="Update">
+                      <form method="post">
+                            <input type="number" name="amount" value="<?php echo $value['amount']; ?>">
+                            <input type="submit" name="update" value="update">
+                            <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                      </form>
                   </div><!--btn-->
-              </div><!--item-single-->     
+              </div><!--item-single-->   
+            <?php } ?>  
         </section><!--containers-->
         
     </section><!--view-->

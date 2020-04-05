@@ -201,7 +201,7 @@ form input[type=submit]:hover {
 }
 
 .btn input[type=submit] {
-    width: 120px;
+    width: 90px;
     border: 0;
     background: #6032af;
     color: white;
