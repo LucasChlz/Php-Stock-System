@@ -10,8 +10,9 @@ html,body{height: 100%;}
 .clear {clear: both;}
 
 .box-success {
-    width: 500px;
-    height: 30px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
     margin: 0 auto;
     border-radius: 2px;
     text-align: center;
@@ -21,8 +22,9 @@ html,body{height: 100%;}
 }
 
 .box-error {
-    width: 500px;
-    height: 30px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
     margin: 0 auto;
     border-radius: 2px;
     text-align: center;
@@ -34,6 +36,7 @@ html,body{height: 100%;}
 .cont {
   background: #2a2a3d;
   height: auto;
+  min-height: 100vh;
   padding: 30px;
 }
 
@@ -270,6 +273,10 @@ form input[type=submit]:hover {
 
     header li {
         display: block;
+    }
+
+    .src {
+        margin-top: 10px;
     }
 }
 
