@@ -2,9 +2,12 @@
     <section class="view">
 
         <div class="search">
-            <h2><i class="fas fa-search"></i> Enter the product name</h2>
-            <input type="text" name="search">
-            <div class="line"></div>
+            <form method="post">
+                <h2><i class="fas fa-search"></i> Enter the product name</h2>
+                <input type="text" name="search" placeholder="Enter the product name">
+                <input style="height: 30px" type="submit" name="action" Value="Search">
+                <div class="line"></div>
+            </form>
         </div><!--search-->
         <?php Stock::Delete() ?>
         <br>
@@ -16,7 +19,7 @@
                     $amounts = Sql::connect()->prepare("UPDATE `products` SET amount = ? WHERE id = $id");
                     $amounts->execute(array($amount));
                 }
-                $products = Stock::Select('products','','');
+                $products = Stock::Search('products','');
                 foreach($products as $key => $value) {
             ?>
               <div class="item-single item">

@@ -130,6 +130,18 @@
             }
         }
 
+        public static function Search($tb) {
+            if(isset($_POST['action']) && $_POST['action'] == 'Search') {
+                $name = $_POST['search'];
+                $query = "WHERE (name LIKE '%$name%')";
+                $sql = Sql::connect()->prepare("SELECT * FROM `$tb` $query");
+                $sql->execute();
+                return $sql->fetchAll();
+            }else {
+                return Stock::Select('products','','');
+            }
+        }
+
         
     }
 
