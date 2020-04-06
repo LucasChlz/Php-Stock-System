@@ -72,19 +72,18 @@
         </div><!--search-->
         <?php Stock::Delete() ?>
         <?php 
-            $All = Sql::connect()->prepare("SELECT * FROM `products` WHERE amount = 0");
-            $All->execute();
-            if($All->rowCount() == 0) {
-                Stock::Alert('success','You have no missing products');
-            }
 
             if(isset($_POST['update'])) {
                 $amount = $_POST['amount'];
                 $id = $_POST['id'];
                 $amounts = Sql::connect()->prepare("UPDATE `products` SET amount = ? WHERE id = $id");
-                if($amounts->execute(array($amount))) {
-                    Stock::Alert('success','You have no missing products');
-                }
+                $amounts->execute(array($amount));
+            }
+
+            $All = Sql::connect()->prepare("SELECT * FROM `products` WHERE amount = 0");
+            $All->execute();
+            if($All->rowCount() == 0) {
+                Stock::Alert('success','You have no missing products');
             }
         ?>
         <br>
